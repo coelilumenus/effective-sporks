@@ -3,6 +3,10 @@
     <side-bar />
 
     <div class="contaner p-4">
+      <el-breadcrumb separator-class="el-icon-arrow-right">
+        <el-breadcrumb-item v-for="page in $route.matched" :to="{ path: page.path }" :key="page.name">{{ page.meta.name || '-' }}</el-breadcrumb-item>
+      </el-breadcrumb>
+
       <nuxt />
     </div>
   </div>
@@ -14,6 +18,6 @@ import SideBar from '@/components/SideBar.vue'
 export default {
   components: {
     SideBar,
-  },
+  }
 }
 </script>
