@@ -1,11 +1,12 @@
 <template>
-  <div class="flex max-w-lg justify-between items-center">
-    <div>label</div>
-    <div class="flex w-full">
-      <el-select v-model="select">
-        <el-option key="1" label="1" value="1"></el-option>
-        <el-option key="2" label="2" value="2"></el-option>
-        <el-option key="3" label="3" value="3"></el-option>
+  <div class="flex max-w-5xl w-full justify-between items-center">
+    <div>value.label</div>
+    <div>
+      <el-select>
+        <el-option :key="'value.label' + '1'" label="Age" value="Возраст респондента"></el-option>
+        <el-option :key="'value.label' + '2'" label="CardStatus" value="Тип карты лояльности"></el-option>
+        <el-option :key="'value.label' + '3'" label="CardType" value="Статус карты лояльности"></el-option>
+        <el-option :key="'value.label' + '4'" label="empty" value="Выберите условие"></el-option>
       </el-select>
     </div>
   </div>
@@ -14,10 +15,16 @@
 <script>
 export default {
   name: 'RespondentsCondition',
-
-  data() {
-    return {
-      select: '1'
+  
+  props: {
+    value: {
+      type: Object,
+      default: () => {
+        return {
+          label: 'Условие',
+          type: 'empty'
+        }
+      }
     }
   }
 }

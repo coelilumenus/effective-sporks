@@ -2,8 +2,8 @@
   <div>
     <respondents-controller>
       <respondents-condition 
-        v-for="(condition, i) in 5" 
-        :key="`condition-${i}`" 
+        v-for="(condition, i) in conditions" 
+        :key="`condition-${i}`"
       />
     </respondents-controller>
   </div>
