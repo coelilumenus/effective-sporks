@@ -7,7 +7,7 @@ export default {
   name: 'Blacklists',
 
   meta: {
-    name: 'Чёрные-листы',
+    name: 'Чёрные-списки',
   },
 }
 </script>
