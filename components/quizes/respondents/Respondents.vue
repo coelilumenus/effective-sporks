@@ -61,11 +61,11 @@ export default {
 
   methods: {
     onAddEmptyCondition() {
-      this.conditions.push({ type: 'Empty' })
+      this.conditions.push({ type: '' })
     },
 
-    onDeleteCondition(index) {
-      this.conditions.splice(index, 1)
+    onDeleteCondition(conditionIndex) {
+      this.conditions.splice(conditionIndex, 1)
     },
   },
 }
