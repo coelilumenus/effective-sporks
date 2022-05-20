@@ -1,3 +1,7 @@
 <template>
-    <div></div>
+  <div>cardtype</div>
 </template>
+
+<script>
+export default {}
+</script>
