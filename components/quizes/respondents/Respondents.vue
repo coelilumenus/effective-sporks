@@ -1,11 +1,31 @@
 <template>
-  <div>
-    <respondents-controller>
-      <respondents-condition 
-        v-for="(condition, i) in conditions" 
-        :key="`condition-${i}`"
-      />
-    </respondents-controller>
+  <div class="flex flex-col gap-y-8">
+    <div class="respondents-controller overflow-y-scroll">
+      <respondents-controller v-if="conditions.length" class="px-8">
+        <respondents-condition
+          v-for="(condition, i) in conditions"
+          v-model="conditions[i]"
+          :key="condition.type + i"
+          :index="i + 1"
+          @deleteCondition="onDeleteCondition(i)"
+        />
+      </respondents-controller>
+      
+      <div class="flex items-center justify-center min-h-full" v-else>
+        <div class="font-bold text-lg text-gray-400">Список условий пуст.</div>
+      </div>
+    </div>
+
+    <div
+      class="flex flex-col w-full py-4 text-green-400 border border-gray-200 justify-center items-center cursor-pointer mt-8 hover:border-green-400"
+      @click="onAddEmptyCondition"
+    >
+      <div><IconPlus class="fill-current" /></div>
+      <div class="flex flex-col items-center">
+        <div>Нажмите, чтобы добавить новое условие выборки.</div>
+        <div>Все условия связываются между собой логическим "И".</div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -13,12 +33,15 @@
 import RespondentsController from './RespondentsController'
 import RespondentsCondition from './RespondentsCondition'
 
+import IconPlus from '@/static/add.svg'
+
 export default {
   name: 'Respondents',
 
   components: {
     RespondentsController,
-    RespondentsCondition
+    RespondentsCondition,
+    IconPlus,
   },
 
   props: {
@@ -35,5 +58,34 @@ export default {
       conditions: this.data,
     }
   },
+
+  methods: {
+    onAddEmptyCondition() {
+      this.conditions.push({ type: 'Empty' })
+    },
+
+    onDeleteCondition(index) {
+      this.conditions.splice(index, 1)
+    },
+  },
 }
 </script>
+
+<style scoped lag="scss">
+.respondents-controller {
+  height: 65vh;
+}
+
+.respondents-controller::-webkit-scrollbar {
+  width: 5px;
+}
+
+.respondents-controller::-webkit-scrollbar-track {
+  opacity: 0;
+}
+
+.respondents-controller::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #60a5fa;
+}
+</style>
