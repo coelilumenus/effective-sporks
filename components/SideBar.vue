@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center max-w-min min-w-max h-screen border-r border-gray-400 p-2">
+  <div class="flex flex-col items-center max-w-min min-w-max border-r border-gray-400 p-4 min-h-screen gap-y-4">
     <nuxt-link
       to="/quizes"
       exact
