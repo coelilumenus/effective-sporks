@@ -1,12 +1,13 @@
 <template>
-  <div class="flex flex-col gap-y-8">
+  <div class="flex flex-col">
     <div class="respondents-controller overflow-y-scroll">
-      <respondents-controller v-if="conditions.length" class="px-8">
+      <respondents-controller v-if="conditions.length">
         <respondents-condition
           v-for="(condition, i) in conditions"
           v-model="conditions[i]"
           :key="condition.type + i"
           :index="i + 1"
+          :lastIndex="(i + 1 === conditions.length)"
           @deleteCondition="onDeleteCondition(i)"
         />
       </respondents-controller>
@@ -17,7 +18,7 @@
     </div>
 
     <div
-      class="flex flex-col w-full py-4 text-green-400 border border-gray-200 justify-center items-center cursor-pointer mt-8 hover:border-green-400"
+      class="flex flex-col w-full py-4 text-green-400 border border-gray-200 justify-center items-center cursor-pointer hover:border-green-400 mt-4"
       @click="onAddEmptyCondition"
     >
       <div><IconPlus class="fill-current" /></div>
@@ -73,7 +74,7 @@ export default {
 
 <style scoped lag="scss">
 .respondents-controller {
-  height: 65vh;
+  height: 70vh;
 }
 
 .respondents-controller::-webkit-scrollbar {

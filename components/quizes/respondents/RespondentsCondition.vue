@@ -1,7 +1,22 @@
 <template>
-  <div class="flex flex-col gap-y-8 py-4">
+  <div 
+    class="flex flex-col gap-y-8 py-4 px-8 relative"
+    :class="{'bg-blue-50': isIndexEven, 'bg-green-50': !isIndexEven, 'border-b': !lastIndex}"
+  >
+    <div
+      v-if="!lastIndex"
+      class="absolute -bottom-3.5 z-50 px-3 py-1 rounded text-sm"
+      :class="{'bg-blue-100': isIndexEven, 'bg-green-100': !isIndexEven}"
+    >
+      И
+    </div>
+    
     <div class="flex w-full justify-between items-center">
-      <div v-if="index" class="flex min-w-max max-w-xs w-full">
+      <div 
+        v-if="index" 
+        class="flex min-w-max max-w-xs w-full font-bold" 
+        :class="{'text-blue-500': isIndexEven, 'text-green-500': !isIndexEven}"
+      >
         Условие {{ index }}
       </div>
 
@@ -73,6 +88,11 @@ export default {
     index: {
       type: Number,
     },
+    
+    lastIndex: {
+      type: Boolean,
+      default: false
+    }
   },
 
   data() {
@@ -91,6 +111,12 @@ export default {
           label: 'Статус карты лояльности',
         },
       ],
+    }
+  },
+  
+  computed: {
+    isIndexEven() {
+      return (this.index % 2  === 0)
     }
   },
 
