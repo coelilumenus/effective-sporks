@@ -53,6 +53,12 @@ export default {
       baseURL: process.env.BASE_URL,
     },
   },
+  
+  target: 'static',
+  
+  router: {
+    base: 'https://coelilumenus.github.io/effective-sporks/'
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
