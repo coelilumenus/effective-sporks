@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/callcenter", {data:[{}],fetch:{},mutations:void 0});

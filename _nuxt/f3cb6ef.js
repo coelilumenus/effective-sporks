@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[14],{442:function(e,n,t){"use strict";t.r(n);t(30),t(98);var r={name:"IndexPage",created:function(){this.$nuxt.$router.replace({path:"/quizes"})}},c=t(34),component=Object(c.a)(r,(function(){var e=this.$createElement;return(this._self._c||e)("div")}),[],!1,null,null,null);n.default=component.exports}}]);
