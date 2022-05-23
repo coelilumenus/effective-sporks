@@ -67,9 +67,9 @@
 </template>
 
 <script>
-import ConditionAge from './ConditionsComponents/ConditionAge.vue'
-import ConditionCardStatus from './ConditionsComponents/ConditionCardStatus.vue'
-import ConditionCardType from './ConditionsComponents/ConditionCardType.vue'
+import ConditionAge from './ConditionComponents/ConditionAge.vue'
+import ConditionCardStatus from './ConditionComponents/ConditionCardStatus.vue'
+import ConditionCardType from './ConditionComponents/ConditionCardType.vue'
 
 export default {
   name: 'RespondentsCondition',
