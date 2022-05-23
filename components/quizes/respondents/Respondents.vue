@@ -27,6 +27,11 @@
         <div>Все условия связываются между собой логическим "И".</div>
       </div>
     </div>
+    
+    <div class="flex justify-between mt-4">
+      <el-button plain type="success">Протестировать опрос</el-button>
+      <el-button type="success" @click="onSubmit">Далее <i class="el-icon-arrow-right el-icon-right"></i></el-button>
+    </div>
   </div>
 </template>
 
@@ -61,6 +66,11 @@ export default {
   },
 
   methods: {
+    async onSubmit() {
+      await this.$axios
+        .$post('/', this.conditions)
+    },
+    
     onAddEmptyCondition() {
       this.conditions.push({ type: '' })
     },
@@ -74,7 +84,7 @@ export default {
 
 <style scoped lag="scss">
 .respondents-controller {
-  height: 70vh;
+  height: 65vh;
 }
 
 .respondents-controller::-webkit-scrollbar {
